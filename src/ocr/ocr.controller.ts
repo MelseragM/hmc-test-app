@@ -6,7 +6,6 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { Public } from '../auth/decorators/public.decorator';
 import { OcrService } from './ocr.service';
 
 const DEFAULT_MAX_FILE_SIZE_MB = 5;
@@ -22,7 +21,6 @@ function getMaxFileSizeBytes() {
   return maxMb * 1024 * 1024;
 }
 
-@Public()
 @Controller('ocr')
 export class OcrController {
   constructor(private readonly ocrService: OcrService) {}
